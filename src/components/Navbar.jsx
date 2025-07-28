@@ -1,46 +1,82 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
-import { useAlert, useUser } from "../hooks/Hooks";
+import React, { useState } from "react";
 
-function Navbar() {
-  const { id } = useParams();
-  const { dispatchAlert } = useAlert();
-  const { user, dispatchUser } = useUser();
+const navLinks = [
+  { label: "Nosotros", href: "#hero" },
+  { label: "Beneficios", href: "#benefits" },
+  { label: "Descubrenos", href: "#product" },
+];
 
-  const handleLogout = () => {
-    dispatchUser({ type: "LOG_OUT" });
-    dispatchAlert({
-      type: "SHOW",
-      payload: "Log out",
-      variant: "Danger",
-    });
-    window.location.href = "/";
+const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    const section = document.querySelector(href);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
-    <div className="backdrop-blur-md fixed inset-0 h-16 w-full bg-white bg-opacity-50 justify-between flex items-center px-10 py-5">
-      <Link to="/" className="text-xl font-semibold">
-        Fronto
-      </Link>
-      <div className="flex gap-2">
-        <Link
-          to="/users"
-          className=" right-10 grid place-content-center bg-blue-700 text-white font-medium text-lg px-5 h-10 w-28 rounded-3xl"
+    <nav className="w-full">
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+        <img src="/GL-logo-1.png" alt="Logo" className="h-14 w-auto -my-2" />
+        <button
+          className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+          aria-label="Toggle navigation menu"
+          onClick={() => setMenuOpen((open) => !open)}
         >
-          Admin
-        </Link>
-        {user && (
-          <button
-            onClick={handleLogout}
-            className=" right-10 bg-red-700 text-white font-medium text-lg px-5 h-10 w-28 rounded-3xl"
-            type="submit"
-          >
-            Log out
-          </button>
-        )}
+          <svg className="w-7 h-7 text-blue-300" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+            {menuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 8h16M4 16h16" />
+            )}
+          </svg>
+        </button>
+        <ul className="hidden md:flex gap-8 items-center">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="text-gray-200 hover:text-blue-400 transition px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                tabIndex={0}
+                aria-label={link.label}
+                onClick={(e) => handleNavClick(e, link.href)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") handleNavClick(e, link.href);
+                }}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
+      {/* Mobile menu */}
+      {menuOpen && (
+        <ul className="md:hidden flex flex-col gap-2 px-4 pb-4 bg-black/80 backdrop-blur-sm rounded-b-xl shadow-lg z-50 fixed left-0 right-0 top-0 mt-[56px]">
+          {navLinks.map((link) => (
+            <li key={link.href}>
+              <a
+                href={link.href}
+                className="block text-gray-200 hover:text-blue-400 transition px-2 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
+                tabIndex={0}
+                aria-label={link.label}
+                onClick={(e) => handleNavClick(e, link.href)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") handleNavClick(e, link.href);
+                }}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      )}
+    </nav>
   );
-}
+};
 
-export default Navbar;
+export default Navbar; 
