@@ -11,7 +11,7 @@ const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative flex flex-col md:flex-row items-center justify-between min-h-[80vh] px-24 py-12 md:py-24 bg-gradient-to-br from-black via-blue-900 to-blue-600 overflow-hidden"
+      className="relative flex flex-col md:flex-row items-center justify-between min-h-[80vh] px-8 md:px-24 py-12 md:py-24 bg-gradient-to-br from-black via-blue-900 to-blue-600 overflow-hidden"
     >
       {/* Navbar overlay */}
       <div className="absolute top-0 left-0 w-full">
