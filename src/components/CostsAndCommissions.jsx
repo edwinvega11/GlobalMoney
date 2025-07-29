@@ -10,7 +10,7 @@ const CostsAndCommissions = () => {
       {/* Header with Logo and Back Button */}
       <div className="bg-gray-900 border-b border-gray-700 px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <img src="/GL-logo-1.png" alt="Global Money Logo" className="h-12 w-auto" />
+          <img src="/GM-Logo-1.png" alt="Global Money Logo" className="h-12 w-auto" />
           <button
             onClick={handleBackHome}
             className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 shadow-lg"

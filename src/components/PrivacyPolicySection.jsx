@@ -5,7 +5,7 @@ const PrivacyPolicySection = () => (
     {/* Logo at the top */}
     <div className="mb-4">
       {/* Replace src with your logo path */}
-              <img src="/GL-logo-1.png" alt="Global Money Logo" className="h-10 w-auto mx-auto" />
+              <img src="/GM-Logo-1.png" alt="Global Money Logo" className="h-10 w-auto mx-auto" />
     </div>
     <div className="max-w-2xl text-xs text-gray-400 text-center">
       <h3 className="text-base font-semibold text-blue-300 mb-2">Aviso de Privacidad</h3>

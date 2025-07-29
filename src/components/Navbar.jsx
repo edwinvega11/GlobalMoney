@@ -19,9 +19,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full">
+    <nav className="w-full absolute top-0 left-0 z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
-        <img src="/GL-logo-1.png" alt="Logo" className="h-14 w-auto -my-2" />
+        <img src="/GM-Logo-1.png" alt="Global Money Logo" className="h-20 md:h-24 w-auto" />
         <button
           className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label="Toggle navigation menu"
@@ -56,7 +56,7 @@ const Navbar = () => {
       </div>
       {/* Mobile menu */}
       {menuOpen && (
-        <ul className="md:hidden flex flex-col gap-2 px-4 pb-4 bg-black/80 backdrop-blur-sm rounded-b-xl shadow-lg z-50 fixed left-0 right-0 top-0 mt-[56px]">
+        <ul className="md:hidden flex flex-col gap-2 px-4 pb-4 bg-black/80 backdrop-blur-sm rounded-b-xl shadow-lg z-50 fixed left-0 right-0 top-0 mt-[80px]">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
