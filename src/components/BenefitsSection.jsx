@@ -46,7 +46,7 @@ const BenefitsSection = () => (
     <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-center mb-12 sm:mb-16 lg:mb-20">Beneficios</h2>
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 sm:gap-8 max-w-7xl mx-auto">
       {benefits.map((benefit, idx) => (
-        <div key={benefit.title} className="flex flex-col items-center text-center">
+        <div key={benefit.title} className="flex flex-col items-center text-center p-6 rounded-xl border border-gray-700 bg-gray-900/50 hover:border-blue-500 hover:bg-gray-800/70 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/20">
           <BenefitIcon number={idx + 1} />
           <h4 className="mt-6 sm:mt-8 text-lg sm:text-xl lg:text-2xl font-semibold h-16 sm:h-20 lg:h-24 flex items-center justify-center">{benefit.title}</h4>
           <p className="mt-3 sm:mt-4 text-gray-400 max-w-[200px] sm:max-w-[250px] text-sm sm:text-base">{benefit.description}</p>
