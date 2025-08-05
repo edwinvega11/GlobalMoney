@@ -21,7 +21,7 @@ const Navbar = () => {
   return (
     <nav className="w-full absolute top-0 left-0 z-50">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
-        <img src="/GM-Logo-1.png" alt="Global Money Logo" className="h-20 md:h-24 w-auto" />
+        <img src="/GlobalMoneyLogoPng.png" alt="Global Money Logo" className="h-28 md:h-32 w-auto" />
         <button
           className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
           aria-label="Toggle navigation menu"
