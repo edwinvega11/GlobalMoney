@@ -1,3 +1,6 @@
+Test: https://global-money.vercel.app
+
+
 # React JS + Tailwind CSS Starter Template
 
 A starter template for creating React Apps, styled with Tailwind CSS.
